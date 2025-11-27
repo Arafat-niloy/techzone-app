@@ -7,6 +7,5 @@ export default withAuth({
 });
 
 export const config = { 
-  // শুধু ড্যাশবোর্ড রাউটগুলো প্রোটেক্ট করবে, সব রাউট চেক করবে না (এতে স্পিড বাড়বে)
   matcher: ["/dashboard/:path*"] 
 };

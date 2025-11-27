@@ -9,17 +9,21 @@ export default function Products() {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
 
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
   useEffect(() => {
-    axios.get("http://localhost:5000/products")
-      .then(res => {
-        setProducts(res.data);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error(err);
-        setLoading(false);
-      });
-  }, []);
+    if (apiUrl) {
+      axios.get(`${apiUrl}/products`)
+        .then(res => {
+          setProducts(res.data);
+          setLoading(false);
+        })
+        .catch(err => {
+          console.error("Error fetching products:", err);
+          setLoading(false);
+        });
+    }
+  }, [apiUrl]);
 
   const filteredProducts = products.filter(p => 
     p.title.toLowerCase().includes(search.toLowerCase()) || 
@@ -29,7 +33,6 @@ export default function Products() {
   return (
     <div className="container mx-auto px-4 py-8">
 
-      {/* HEADER & SEARCH */}
       <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 bg-base-200 p-6 rounded-lg">
         <div>
           <h1 className="text-3xl font-bold">Our Catalog</h1>
@@ -54,22 +57,20 @@ export default function Products() {
           {filteredProducts.map((product) => (
             <div
               key={product.id}
-              className="card rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 ease-in-out"
+              className="card rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 ease-in-out bg-base-100"
             >
 
-              {/* IMAGE */}
-              <figure className="relative h-52 overflow-hidden bg-white">
+              <figure className="relative h-52 w-full bg-white overflow-hidden">
                 <Image
                   src={product.image}
                   alt={product.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                  className="object-cover p-4"
+                  className="object-contain p-4 hover:scale-110 transition-transform duration-500"
                 />
               </figure>
 
-              {/* CONTENT */}
-              <div className="card-body bg-gray-300 p-5">
+              <div className="card-body bg-gray-100 p-5">
                 <div className="badge badge-outline text-xs mb-2">
                   {product.category || "General"}
                 </div>
@@ -84,7 +85,7 @@ export default function Products() {
                   </span>
                   <Link
                     href={`/products/${product.id}`}
-                    className="rounded-2xl px-3 py-1 bg-violet-800 hover:bg-violet-400 text-white"
+                    className="rounded-2xl px-4 py-2 bg-violet-800 hover:bg-violet-400 text-white text-sm font-medium transition"
                   >
                     Details
                   </Link>
@@ -98,7 +99,7 @@ export default function Products() {
       )}
 
       {!loading && filteredProducts.length === 0 && (
-        <p className="text-center text-xl mt-10">No products found.</p>
+        <p className="text-center text-xl mt-10">No products found or check your connection.</p>
       )}
 
     </div>
