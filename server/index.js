@@ -6,9 +6,9 @@ const port = 5000;
 app.use(cors());
 app.use(express.json());
 
-// Dummy Data (Total 12 Products with Local Images)
+// Dummy Data (12 Products with Online Image URLs)
+// Note: Using Unsplash images ensures they load on Vercel deployments
 let products = [
-  // --- Existing 6 Products ---
   { 
     id: 1, 
     title: "Wireless Headphones", 
@@ -16,7 +16,7 @@ let products = [
     fullDesc: "Experience superior sound quality with active noise cancellation.", 
     price: 120, 
     category: "Audio", 
-    image: "/images/p1.jpg" 
+    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80" 
   },
   { 
     id: 2, 
@@ -25,7 +25,7 @@ let products = [
     fullDesc: "Stay fit and connected with this advanced smartwatch.", 
     price: 80, 
     category: "Wearable", 
-    image: "/images/p2.jpg" 
+    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80" 
   },
   { 
     id: 3, 
@@ -34,7 +34,7 @@ let products = [
     fullDesc: "Precision gaming mouse with customizable RGB lighting.", 
     price: 45, 
     category: "Gaming", 
-    image: "/images/p3.jpg" 
+    image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&q=80" 
   },
   { 
     id: 4, 
@@ -43,7 +43,7 @@ let products = [
     fullDesc: "Tactile feedback for the best typing experience.", 
     price: 100, 
     category: "Gaming", 
-    image: "/images/p4.jpg" 
+    image: "https://images.unsplash.com/photo-1587829741301-dc798b91a91e?w=600&q=80" 
   },
   { 
     id: 5, 
@@ -52,7 +52,7 @@ let products = [
     fullDesc: "Capture stunning moments with high resolution.", 
     price: 450, 
     category: "Camera", 
-    image: "/images/p5.jpg" 
+    image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&q=80" 
   },
   { 
     id: 6, 
@@ -61,10 +61,8 @@ let products = [
     fullDesc: "Ergonomic design to reduce neck strain.", 
     price: 30, 
     category: "Accessory", 
-    image: "/images/p6.jpg" 
+    image: "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=600&q=80" 
   },
-
-  // --- New 6 Products ---
   { 
     id: 7, 
     title: "Bluetooth Speaker", 
@@ -72,7 +70,7 @@ let products = [
     fullDesc: "Portable speaker with deep bass and IPX7 waterproof rating.", 
     price: 60, 
     category: "Audio", 
-    image: "/images/p7.jpg" 
+    image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&q=80" 
   },
   { 
     id: 8, 
@@ -81,7 +79,7 @@ let products = [
     fullDesc: "Ultra HD monitor for professional editing and gaming.", 
     price: 300, 
     category: "Electronics", 
-    image: "/images/p8.jpg" 
+    image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&q=80" 
   },
   { 
     id: 9, 
@@ -90,7 +88,7 @@ let products = [
     fullDesc: "High-back gaming chair providing ultimate comfort for long sessions.", 
     price: 150, 
     category: "Furniture", 
-    image: "/images/p9.jpg" 
+    image: "https://plus.unsplash.com/premium_photo-1680985551009-05107cd2752c?w=600&q=80" 
   },
   { 
     id: 10, 
@@ -99,7 +97,7 @@ let products = [
     fullDesc: "High capacity power bank to charge your devices on the go.", 
     price: 40, 
     category: "Accessory", 
-    image: "/images/p10.jpg" 
+    image: "https://images.unsplash.com/photo-1609592803668-b70062b3394a?w=600&q=80" 
   },
   { 
     id: 11, 
@@ -108,7 +106,7 @@ let products = [
     fullDesc: "Step into a new reality with this advanced VR headset.", 
     price: 350, 
     category: "Gaming", 
-    image: "/images/p11.jpg" 
+    image: "https://images.unsplash.com/photo-1622979135225-d2ba269fb1bd?w=600&q=80" 
   },
   { 
     id: 12, 
@@ -117,7 +115,7 @@ let products = [
     fullDesc: "Expand your laptop's connectivity with HDMI, USB, and SD card slots.", 
     price: 25, 
     category: "Accessory", 
-    image: "/images/p12.jpg" 
+    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80" 
   }
 ];
 
@@ -139,8 +137,8 @@ app.post('/products', (req, res) => {
   const newProduct = { 
     id: Date.now(), 
     ...req.body, 
-    // If no image provided, check if client provided a path or use a placeholder
-    image: req.body.image || "/images/p1.jpg" 
+    // Fallback image if user doesn't provide one
+    image: req.body.image || "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600&q=80" 
   };
   products.push(newProduct);
   res.status(201).json(newProduct);
