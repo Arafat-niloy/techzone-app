@@ -29,12 +29,13 @@ export default function Products() {
   return (
     <div className="container mx-auto px-4 py-8">
 
-      {/* Header & Search */}
+      {/* HEADER & SEARCH */}
       <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 bg-base-200 p-6 rounded-lg">
         <div>
           <h1 className="text-3xl font-bold">Our Catalog</h1>
           <p className="text-sm opacity-70">Find the best gear for your needs</p>
         </div>
+
         <input 
           type="text" 
           placeholder="Search by name or category..." 
@@ -48,25 +49,26 @@ export default function Products() {
           <span className="loading loading-spinner loading-lg text-primary"></span>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           
           {filteredProducts.map((product) => (
-            <div key={product.id} className="card rounded-2xl overflow-hidden shadow-lg 
-hover:shadow-2xl transform hover:-translate-y-2 
-transition-all duration-300 ease-in-out">
-              
-              {/* Image */}
+            <div
+              key={product.id}
+              className="card rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 ease-in-out"
+            >
+
+              {/* IMAGE */}
               <figure className="relative h-52 overflow-hidden bg-white">
                 <Image
                   src={product.image}
                   alt={product.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                  className="object-cover p-4 "
+                  className="object-cover p-4"
                 />
               </figure>
 
-              {/* Content */}
+              {/* CONTENT */}
               <div className="card-body bg-gray-300 p-5">
                 <div className="badge badge-outline text-xs mb-2">
                   {product.category || "General"}

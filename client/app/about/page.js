@@ -4,19 +4,9 @@ import { FaAward, FaUsers, FaSmile } from "react-icons/fa";
 export default function About() {
   return (
     <div>
-      {/* 1. Hero Section */}
-      {/* <div className="hero min-h-[40vh] bg-base-200">
-        <div className="hero-content text-center">
-          <div className="max-w-md">
-            <h1 className="text-5xl font-bold">Who We Are</h1>
-            <p className="py-6">
-              TechZone is your premier destination for the latest gadgets and tech accessories. We believe in quality, innovation, and customer satisfaction.
-            </p>
-          </div>
-        </div>
-      </div> */}
+      
 
-      {/* 2. Mission Section */}
+      {/* 1. Mission Section */}
       <div className="container mx-auto px-4 py-16">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2 relative h-[400px] w-full">

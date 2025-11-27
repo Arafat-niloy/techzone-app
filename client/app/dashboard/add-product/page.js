@@ -15,8 +15,8 @@ export default function AddProduct() {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post("http://localhost:5000/products", formData);
-      toast.success("Product added successfully!");
+axios.post(`${process.env.NEXT_PUBLIC_API_URL}/products`, formData)      
+toast.success("Product added successfully!");
       router.push("/dashboard/manage-products");
     } catch (error) {
       toast.error("Failed to add product");
