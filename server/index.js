@@ -43,7 +43,7 @@ let products = [
     fullDesc: "Tactile feedback for the best typing experience.", 
     price: 100, 
     category: "Gaming", 
-    image: "https://images.unsplash.com/photo-1587829741301-dc798b91a91e?w=600&q=80" 
+    image: "https://i.ibb.co.com/s93ww2Tq/michelle-ding-50u-D7-Hz-OLW8-unsplash.jpg" 
   },
   { 
     id: 5, 
@@ -87,8 +87,8 @@ let products = [
     shortDesc: "Ergonomic, Lumbar Support", 
     fullDesc: "High-back gaming chair providing ultimate comfort for long sessions.", 
     price: 150, 
-    category: "Furniture", 
-    image: "https://plus.unsplash.com/premium_photo-1680985551009-05107cd2752c?w=600&q=80" 
+    category: "Gaming", 
+    image: "https://i.ibb.co.com/spQYdvy2/josh-sorenson-Xc-Cvib-C10kk-unsplash.jpg" 
   },
   { 
     id: 10, 
@@ -97,7 +97,7 @@ let products = [
     fullDesc: "High capacity power bank to charge your devices on the go.", 
     price: 40, 
     category: "Accessory", 
-    image: "https://images.unsplash.com/photo-1609592803668-b70062b3394a?w=600&q=80" 
+    image: "https://i.ibb.co.com/GvTSbs1t/gomi-CY4m-Vp-Rv-Pxc-unsplash.jpg" 
   },
   { 
     id: 11, 
@@ -106,7 +106,7 @@ let products = [
     fullDesc: "Step into a new reality with this advanced VR headset.", 
     price: 350, 
     category: "Gaming", 
-    image: "https://images.unsplash.com/photo-1622979135225-d2ba269fb1bd?w=600&q=80" 
+    image: "https://i.ibb.co.com/x8YfB3qF/remy-gieling-Zf0m-Pf4l-G-U-unsplash.jpg" 
   },
   { 
     id: 12, 
@@ -115,7 +115,7 @@ let products = [
     fullDesc: "Expand your laptop's connectivity with HDMI, USB, and SD card slots.", 
     price: 25, 
     category: "Accessory", 
-    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80" 
+    image: "https://i.ibb.co.com/wZ7XJ8tc/lasse-jensen-4n-VJUZEJb3s-unsplash.jpg" 
   }
 ];
 

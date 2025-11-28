@@ -66,7 +66,7 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-4">
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="form-control">
+                    <div className="form-control space-x-2 ">
                       <label className="label">
                         <span className="label-text">Name</span>
                       </label>
@@ -78,7 +78,7 @@ export default function Contact() {
                       />
                     </div>
 
-                    <div className="form-control">
+                    <div className="form-control space-x-2 ">
                       <label className="label">
                         <span className="label-text">Email</span>
                       </label>
@@ -91,7 +91,7 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="form-control">
+                  <div className="form-control space-x-2 ">
                     <label className="label">
                       <span className="label-text">Subject</span>
                     </label>
@@ -103,7 +103,7 @@ export default function Contact() {
                     />
                   </div>
 
-                  <div className="form-control">
+                  <div className="form-control space-x-2 ">
                     <label className="label">
                       <span className="label-text">Message</span>
                     </label>
