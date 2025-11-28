@@ -30,27 +30,27 @@ export default function SignIn() {
         <div className="card-body">
           <h2 className="text-2xl font-bold text-center mb-4">Welcome Back</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="form-control">
+            <div className="form-control space-x-2">
               <label className="label"><span className="label-text">Username</span></label>
               <input type="text" placeholder="admin" className="input input-bordered" 
                 value={username} onChange={(e) => setUsername(e.target.value)} required/>
             </div>
-            <div className="form-control">
+            <div className="form-control space-x-2">
               <label className="label"><span className="label-text">Password</span></label>
               <input type="password" placeholder="admin" className="input input-bordered" 
                 value={password} onChange={(e) => setPassword(e.target.value)} required/>
             </div>
-            <button className="btn btn-primary w-full mt-4">Login</button>
+            <button className="rounded-2xl bg-violet-800 text-white w-full mt-4">Login</button>
           </form>
           
-          <div className="divider">OR</div>
+          <div className="divider text-center">OR</div>
           
           <button onClick={() => signIn("google", { callbackUrl: '/' })} className="btn btn-outline w-full">
-            <span className="loading loading-spinner loading-xs hidden"></span>
+            <span className="loading loading-spinner loading-xs hidden rounded-2xl bg-white text-black"></span>
             Sign in with Google
           </button>
         </div>
       </div>
     </div>
   );
-}
+} space-x-2
